@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		150F47852C9D9F3900A6D729 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47842C9D9F3900A6D729 /* AppDelegate.swift */; };
 		150F47872C9D9F3900A6D729 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47862C9D9F3900A6D729 /* SceneDelegate.swift */; };
-		150F47892C9D9F3900A6D729 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47882C9D9F3900A6D729 /* ViewController.swift */; };
 		150F478C2C9D9F3900A6D729 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150F478A2C9D9F3900A6D729 /* Main.storyboard */; };
 		150F478E2C9D9F3B00A6D729 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 150F478D2C9D9F3B00A6D729 /* Assets.xcassets */; };
 		150F47912C9D9F3B00A6D729 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150F478F2C9D9F3B00A6D729 /* LaunchScreen.storyboard */; };
+		150F479B2C9DA5CE00A6D729 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F479A2C9DA5CE00A6D729 /* LoadViewController.swift */; };
+		150F479E2C9DA5DB00A6D729 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 150F479D2C9DA5DB00A6D729 /* SnapKit */; };
+		150F47A12C9DA5E900A6D729 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 150F47A02C9DA5E900A6D729 /* CombineCocoa */; };
+		150F47A42C9DAF3800A6D729 /* OnbUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47A32C9DAF3800A6D729 /* OnbUserViewController.swift */; };
+		150F47A72C9DBC9700A6D729 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47A62C9DBC9700A6D729 /* TabBarViewController.swift */; };
+		150F47AA2C9DBE5700A6D729 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47A92C9DBE5700A6D729 /* ProfileViewController.swift */; };
+		150F47AC2C9DC6FF00A6D729 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47AB2C9DC6FF00A6D729 /* ProfileEditViewController.swift */; };
+		150F47AE2C9DF59F00A6D729 /* AddAndEditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47AD2C9DF59F00A6D729 /* AddAndEditCategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		150F47812C9D9F3900A6D729 /* Avitan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avitan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		150F47842C9D9F3900A6D729 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		150F47862C9D9F3900A6D729 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		150F47882C9D9F3900A6D729 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		150F478B2C9D9F3900A6D729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		150F478D2C9D9F3B00A6D729 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		150F47902C9D9F3B00A6D729 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		150F47922C9D9F3B00A6D729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		150F479A2C9DA5CE00A6D729 /* LoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
+		150F47A32C9DAF3800A6D729 /* OnbUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbUserViewController.swift; sourceTree = "<group>"; };
+		150F47A62C9DBC9700A6D729 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		150F47A92C9DBE5700A6D729 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		150F47AB2C9DC6FF00A6D729 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		150F47AD2C9DF59F00A6D729 /* AddAndEditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAndEditCategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150F47A12C9DA5E900A6D729 /* CombineCocoa in Frameworks */,
+				150F479E2C9DA5DB00A6D729 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +54,10 @@
 		150F47782C9D9F3900A6D729 = {
 			isa = PBXGroup;
 			children = (
+				150F47A82C9DBE4200A6D729 /* Profile */,
+				150F47A52C9DBC8000A6D729 /* Tapbar */,
+				150F47A22C9DAEDB00A6D729 /* OnbUser */,
+				150F47992C9DA5C100A6D729 /* LoadPage */,
 				150F47832C9D9F3900A6D729 /* Avitan */,
 				150F47822C9D9F3900A6D729 /* Products */,
 			);
@@ -56,15 +74,56 @@
 		150F47832C9D9F3900A6D729 /* Avitan */ = {
 			isa = PBXGroup;
 			children = (
-				150F47842C9D9F3900A6D729 /* AppDelegate.swift */,
-				150F47862C9D9F3900A6D729 /* SceneDelegate.swift */,
-				150F47882C9D9F3900A6D729 /* ViewController.swift */,
-				150F478A2C9D9F3900A6D729 /* Main.storyboard */,
-				150F478D2C9D9F3B00A6D729 /* Assets.xcassets */,
-				150F478F2C9D9F3B00A6D729 /* LaunchScreen.storyboard */,
+				150F47982C9DA59C00A6D729 /* Support */,
 				150F47922C9D9F3B00A6D729 /* Info.plist */,
 			);
 			path = Avitan;
+			sourceTree = "<group>";
+		};
+		150F47982C9DA59C00A6D729 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				150F47862C9D9F3900A6D729 /* SceneDelegate.swift */,
+				150F478D2C9D9F3B00A6D729 /* Assets.xcassets */,
+				150F478F2C9D9F3B00A6D729 /* LaunchScreen.storyboard */,
+				150F478A2C9D9F3900A6D729 /* Main.storyboard */,
+				150F47842C9D9F3900A6D729 /* AppDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		150F47992C9DA5C100A6D729 /* LoadPage */ = {
+			isa = PBXGroup;
+			children = (
+				150F479A2C9DA5CE00A6D729 /* LoadViewController.swift */,
+			);
+			path = LoadPage;
+			sourceTree = "<group>";
+		};
+		150F47A22C9DAEDB00A6D729 /* OnbUser */ = {
+			isa = PBXGroup;
+			children = (
+				150F47A32C9DAF3800A6D729 /* OnbUserViewController.swift */,
+			);
+			path = OnbUser;
+			sourceTree = "<group>";
+		};
+		150F47A52C9DBC8000A6D729 /* Tapbar */ = {
+			isa = PBXGroup;
+			children = (
+				150F47A62C9DBC9700A6D729 /* TabBarViewController.swift */,
+			);
+			path = Tapbar;
+			sourceTree = "<group>";
+		};
+		150F47A82C9DBE4200A6D729 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				150F47A92C9DBE5700A6D729 /* ProfileViewController.swift */,
+				150F47AB2C9DC6FF00A6D729 /* ProfileEditViewController.swift */,
+				150F47AD2C9DF59F00A6D729 /* AddAndEditCategoryViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +142,10 @@
 			dependencies = (
 			);
 			name = Avitan;
+			packageProductDependencies = (
+				150F479D2C9DA5DB00A6D729 /* SnapKit */,
+				150F47A02C9DA5E900A6D729 /* CombineCocoa */,
+			);
 			productName = Avitan;
 			productReference = 150F47812C9D9F3900A6D729 /* Avitan.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +174,10 @@
 				Base,
 			);
 			mainGroup = 150F47782C9D9F3900A6D729;
+			packageReferences = (
+				150F479C2C9DA5DB00A6D729 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				150F479F2C9DA5E900A6D729 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+			);
 			productRefGroup = 150F47822C9D9F3900A6D729 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +205,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				150F47892C9D9F3900A6D729 /* ViewController.swift in Sources */,
+				150F47AE2C9DF59F00A6D729 /* AddAndEditCategoryViewController.swift in Sources */,
+				150F47AA2C9DBE5700A6D729 /* ProfileViewController.swift in Sources */,
+				150F47AC2C9DC6FF00A6D729 /* ProfileEditViewController.swift in Sources */,
+				150F479B2C9DA5CE00A6D729 /* LoadViewController.swift in Sources */,
 				150F47852C9D9F3900A6D729 /* AppDelegate.swift in Sources */,
 				150F47872C9D9F3900A6D729 /* SceneDelegate.swift in Sources */,
+				150F47A72C9DBC9700A6D729 /* TabBarViewController.swift in Sources */,
+				150F47A42C9DAF3800A6D729 /* OnbUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,11 +366,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Avitan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Avitan;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,6 +379,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = k.Avitan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,11 +397,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Avitan/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Avitan;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,6 +410,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = k.Avitan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -361,6 +441,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		150F479C2C9DA5DB00A6D729 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		150F479F2C9DA5E900A6D729 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		150F479D2C9DA5DB00A6D729 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 150F479C2C9DA5DB00A6D729 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		150F47A02C9DA5E900A6D729 /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 150F479F2C9DA5E900A6D729 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 150F47792C9D9F3900A6D729 /* Project object */;
 }
