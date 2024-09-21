@@ -15,7 +15,6 @@ class AddAndEditCategoryViewController: UIViewController {
     var cancellables = [AnyCancellable]()
     
     var isNew = true
-    var categoryEdit: Category?
     
     //ui
     lazy var categoryImageView = UIImageView()
@@ -24,14 +23,30 @@ class AddAndEditCategoryViewController: UIViewController {
     
     //other
     lazy var emojiTextField = EmojiTextField()
+    lazy var saveButton = UIButton(type: .system)
+    
+    //del and edit
+    var index = 0
+    lazy var delButton = UIButton(type: .system)
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 30/255, alpha: 1)
         createInterface()
+        checkIsNew()
     }
     
+    func checkIsNew() {
+        if isNew == false {
+            delButton.alpha = 1
+            categoryImageView.image = UIImage(data: categoryArr[index].image)
+            nameTextField.text = categoryArr[index].name
+            descriptionTextView.text = categoryArr[index].description
+            checkButton()
+        }
+    }
 
     func createInterface() {
         
@@ -60,6 +75,37 @@ class AddAndEditCategoryViewController: UIViewController {
             }
             .store(in: &cancellables)
         
+        delButton.setBackgroundImage(.delCategory, for: .normal)
+        delButton.alpha = 0
+        view.addSubview(delButton)
+        delButton.snp.makeConstraints { make in
+            make.right.equalToSuperview()
+            make.centerY.equalTo(topLabel)
+            make.height.equalTo(44)
+            make.width.equalTo(40)
+        }
+        
+        delButton.tapPublisher
+            .sink { _ in
+                let alertController = UIAlertController(title: "Do you want to delete the category?", message: nil, preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                let delAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+                    categoryArr.remove(at: self.index)
+                    do {
+                        let data = try JSONEncoder().encode(categoryArr) //тут мкассив конвертируем в дату
+                        try self.saveAthleteArrToFile(data: data)
+                        self.categoryPublisher?.send(0)
+                        self.navigationController?.popViewController(animated: true)
+                    } catch {
+                        print("Failed to encode or save athleteArr: \(error)")
+                    }
+                }
+                alertController.addAction(cancelAction)
+                alertController.addAction(delAction)
+                self.present(alertController, animated: true)
+            }
+            .store(in: &cancellables)
+        
         categoryImageView.layer.cornerRadius = 73
         categoryImageView.clipsToBounds = true
         categoryImageView.isUserInteractionEnabled = true
@@ -80,6 +126,7 @@ class AddAndEditCategoryViewController: UIViewController {
             .sink { [weak self] text in
                 let emojiImage = self?.createEmojiImage(from: String(text ?? ""), size: 40)
                 self?.categoryImageView.image = emojiImage
+                self?.checkButton()
             }
             .store(in: &cancellables)
         
@@ -131,6 +178,7 @@ class AddAndEditCategoryViewController: UIViewController {
         descriptionTextView.textColor = .red
         descriptionTextView.font = .systemFont(ofSize: 17, weight: .semibold)
         descriptionTextView.isScrollEnabled = false
+        descriptionTextView.delegate = self
         view.addSubview(descriptionTextView)
         descriptionTextView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(15)
@@ -138,8 +186,68 @@ class AddAndEditCategoryViewController: UIViewController {
             make.top.equalTo(deskLabel.snp.bottom).inset(-10)
         }
         
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.layer.cornerRadius = 28
+        saveButton.backgroundColor = UIColor(red: 44/255, green: 44/255, blue: 46/255, alpha: 1)
+        saveButton.setTitleColor(.white, for: .normal)
+        saveButton.alpha = 0.5
+        saveButton.isEnabled = false
+        saveButton.titleLabel?.font = .systemFont(ofSize: 22, weight: .bold)
+        view.addSubview(saveButton)
+        saveButton.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(15)
+            make.height.equalTo(56)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(15)
+        }
+        saveButton.tapPublisher
+            .sink { _ in
+                let image: Data = self.categoryImageView.image?.jpegData(compressionQuality: 1) ?? Data()
+                let name: String = self.nameTextField.text ?? ""
+                let desk: String = self.descriptionTextView.text ?? ""
+                
+                let category = Category(image: image, name: name, description: desk)
+                
+                if self.isNew == true {
+                    categoryArr.append(category)
+                } else {
+                    categoryArr[self.index] = category
+                }
+                
+                do {
+                    let data = try JSONEncoder().encode(categoryArr) //тут мкассив конвертируем в дату
+                    try self.saveAthleteArrToFile(data: data)
+                    self.categoryPublisher?.send(0)
+                    self.navigationController?.popViewController(animated: true)
+                } catch {
+                    print("Failed to encode or save athleteArr: \(error)")
+                }
+                
+            }
+            .store(in: &cancellables)
+        
     }
     
+    func saveAthleteArrToFile(data: Data) throws {
+        let fileManager = FileManager.default
+        if let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let filePath = documentDirectory.appendingPathComponent("category111.plist")
+            try data.write(to: filePath)
+        } else {
+            throw NSError(domain: "SaveError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unable to get document directory"])
+        }
+    }
+    
+    func checkButton() {
+        if categoryImageView.image != .user, nameTextField.text?.count ?? 0 > 0 , descriptionTextView.text.count > 0 {
+            saveButton.alpha = 1
+            saveButton.isEnabled = true
+            saveButton.backgroundColor = UIColor(red: 239/255, green: 26/255, blue: 51/255, alpha: 1)
+        } else {
+            saveButton.alpha = 0.5
+            saveButton.isEnabled = false
+            saveButton.backgroundColor = UIColor(red: 44/255, green: 44/255, blue: 46/255, alpha: 1)
+        }
+    }
     
     @objc func openEmojiKeyboard() {
         emojiTextField.becomeFirstResponder()
@@ -198,7 +306,48 @@ class AddAndEditCategoryViewController: UIViewController {
 extension AddAndEditCategoryViewController: UITextFieldDelegate, UITextViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
+        checkButton()
         return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        checkButton()
+        return true
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        checkButton()
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        checkButton()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        checkButton()
+        return true
+    }
+    
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        checkButton()
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        checkButton()
+        return true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        UIView.animate(withDuration: 0.3) {
+            self.view.transform = CGAffineTransform(translationX: 0, y: -250)
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        checkButton()
+        UIView.animate(withDuration: 0.3) {
+              self.view.transform = .identity
+          }
     }
 }
 

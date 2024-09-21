@@ -69,10 +69,15 @@ class ProfileViewController: UIViewController {
         
         categoryPublisher
             .sink { category in
+                self.checkCat()
                 self.categoryCollection?.reloadData()
             }
             .store(in: &cancellables)
         
+        checkCat()
+    }
+    
+    func checkCat() {
         if categoryArr.count > 0 {
             noCategoryView.alpha = 0
             categoryCollection?.alpha = 1
@@ -89,7 +94,7 @@ class ProfileViewController: UIViewController {
             print("Unable to get document directory")
             return nil
         }
-        let filePath = documentDirectory.appendingPathComponent("user.plist")
+        let filePath = documentDirectory.appendingPathComponent("category111.plist")
         do {
             let data = try Data(contentsOf: filePath)
             let athleteArr = try JSONDecoder().decode([Category].self, from: data)
@@ -245,17 +250,19 @@ class ProfileViewController: UIViewController {
             make.left.equalToSuperview().inset(15)
             make.height.equalTo(66)
             make.centerY.equalTo(addCategoryButton)
-            make.right.equalTo(noCategoryView.snp.left).inset(-10)
+            make.right.equalTo(addCategoryButton.snp.left).inset(-10)
         }
         
         categoryCollection = {
             let layout = UICollectionViewFlowLayout()
             let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            collection.backgroundColor = .red
+            collection.backgroundColor = .clear
             collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "1")
             collection.showsLargeContentViewer = false
+            layout.scrollDirection = .vertical
             collection.delegate = self
             collection.dataSource = self
+            layout.minimumInteritemSpacing = 5
             return collection
         }()
         view.addSubview(categoryCollection!)
@@ -263,8 +270,18 @@ class ProfileViewController: UIViewController {
             make.left.equalToSuperview().inset(15)
             make.height.equalTo(66)
             make.centerY.equalTo(addCategoryButton)
-            make.right.equalTo(noCategoryView.snp.left).inset(-10)
+            make.right.equalTo(addCategoryButton.snp.left).inset(-10)
         })
+        
+        let openCategoriesGesture = UITapGestureRecognizer(target: self, action: nil)
+        categoryCollection?.addGestureRecognizer(openCategoriesGesture)
+        openCategoriesGesture.tapPublisher
+            .sink { _ in
+                let vc = AllCategoriesViewController()
+                vc.categoryPublisher = self.categoryPublisher
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            .store(in: &cancellables)
         
         let usageButton = createButton(title: "Usage Policy")
         view.addSubview(usageButton)
@@ -390,14 +407,49 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryArr.prefix(3).count + 1
+        if categoryArr.count > 3 {
+            return categoryArr.prefix(3).count + 1
+        } else {
+            return categoryArr.prefix(3).count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "1", for: indexPath)
-        cell.backgroundColor = .orange
         cell.subviews.forEach { $0.removeFromSuperview() }
+        cell.backgroundColor = .white
+        cell.layer.cornerRadius = 33
+        cell.clipsToBounds = true
+        
+        if categoryArr.count >= 3 , indexPath.row != 3 {
+            let imageView = UIImageView(image: UIImage(data: categoryArr[indexPath.row].image ))
+            cell.addSubview(imageView)
+            imageView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        } else if categoryArr.count >= 3 , indexPath.row == 3  {
+            cell.backgroundColor = UIColor(red: 44/255, green: 44/255, blue: 46/255, alpha: 1)
+            let label = UILabel()
+            label.text = "+\(categoryArr.count - categoryArr.prefix(3).count)"
+            label.textColor = .red
+            label.font = .systemFont(ofSize: 22, weight: .bold)
+            cell.addSubview(label)
+            label.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+            }
+        } else if categoryArr.count < 3 {
+            let imageView = UIImageView(image: UIImage(data: categoryArr[indexPath.row].image ))
+            cell.addSubview(imageView)
+            imageView.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        }
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 66, height: 66)
     }
     
     

@@ -20,6 +20,9 @@
 		150F47AA2C9DBE5700A6D729 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47A92C9DBE5700A6D729 /* ProfileViewController.swift */; };
 		150F47AC2C9DC6FF00A6D729 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47AB2C9DC6FF00A6D729 /* ProfileEditViewController.swift */; };
 		150F47AE2C9DF59F00A6D729 /* AddAndEditCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47AD2C9DF59F00A6D729 /* AddAndEditCategoryViewController.swift */; };
+		150F47B02C9EF5A300A6D729 /* AllCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47AF2C9EF5A300A6D729 /* AllCategoriesViewController.swift */; };
+		150F47B32C9F016A00A6D729 /* LeisureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47B22C9F016900A6D729 /* LeisureViewController.swift */; };
+		150F47B52C9F0A5F00A6D729 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F47B42C9F0A5F00A6D729 /* ReminderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		150F47A92C9DBE5700A6D729 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		150F47AB2C9DC6FF00A6D729 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		150F47AD2C9DF59F00A6D729 /* AddAndEditCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAndEditCategoryViewController.swift; sourceTree = "<group>"; };
+		150F47AF2C9EF5A300A6D729 /* AllCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCategoriesViewController.swift; sourceTree = "<group>"; };
+		150F47B22C9F016900A6D729 /* LeisureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeisureViewController.swift; sourceTree = "<group>"; };
+		150F47B42C9F0A5F00A6D729 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 		150F47782C9D9F3900A6D729 = {
 			isa = PBXGroup;
 			children = (
+				150F47B12C9F014D00A6D729 /* Leisure */,
 				150F47A82C9DBE4200A6D729 /* Profile */,
 				150F47A52C9DBC8000A6D729 /* Tapbar */,
 				150F47A22C9DAEDB00A6D729 /* OnbUser */,
@@ -122,8 +129,18 @@
 				150F47A92C9DBE5700A6D729 /* ProfileViewController.swift */,
 				150F47AB2C9DC6FF00A6D729 /* ProfileEditViewController.swift */,
 				150F47AD2C9DF59F00A6D729 /* AddAndEditCategoryViewController.swift */,
+				150F47AF2C9EF5A300A6D729 /* AllCategoriesViewController.swift */,
+				150F47B42C9F0A5F00A6D729 /* ReminderView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		150F47B12C9F014D00A6D729 /* Leisure */ = {
+			isa = PBXGroup;
+			children = (
+				150F47B22C9F016900A6D729 /* LeisureViewController.swift */,
+			);
+			path = Leisure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,11 +224,14 @@
 			files = (
 				150F47AE2C9DF59F00A6D729 /* AddAndEditCategoryViewController.swift in Sources */,
 				150F47AA2C9DBE5700A6D729 /* ProfileViewController.swift in Sources */,
+				150F47B02C9EF5A300A6D729 /* AllCategoriesViewController.swift in Sources */,
+				150F47B52C9F0A5F00A6D729 /* ReminderView.swift in Sources */,
 				150F47AC2C9DC6FF00A6D729 /* ProfileEditViewController.swift in Sources */,
 				150F479B2C9DA5CE00A6D729 /* LoadViewController.swift in Sources */,
 				150F47852C9D9F3900A6D729 /* AppDelegate.swift in Sources */,
 				150F47872C9D9F3900A6D729 /* SceneDelegate.swift in Sources */,
 				150F47A72C9DBC9700A6D729 /* TabBarViewController.swift in Sources */,
+				150F47B32C9F016A00A6D729 /* LeisureViewController.swift in Sources */,
 				150F47A42C9DAF3800A6D729 /* OnbUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

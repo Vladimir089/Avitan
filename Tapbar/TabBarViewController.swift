@@ -10,7 +10,7 @@ import UIKit
 class TabBarViewController: UITabBarController {
     
     var profileVC = UINavigationController(rootViewController: ProfileViewController())
-    
+    var leisureVC = UINavigationController(rootViewController: LeisureViewController())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,14 @@ class TabBarViewController: UITabBarController {
     func createInterface() {
         let profileItem = UITabBarItem(title: "Profile", image: .profile.resize(targetSize: CGSize(width: 20, height: 20)), tag: 0)
         profileVC.tabBarItem = profileItem
+        
+        let leisureItem = UITabBarItem(title: "Leisure", image: .leisure.resize(targetSize: CGSize(width: 32, height: 32)), tag: 0)
+        leisureVC.tabBarItem = leisureItem
+        
         tabBar.unselectedItemTintColor = .white
         tabBar.tintColor = .red
         
-        viewControllers = [profileVC]
+        viewControllers = [profileVC, leisureVC]
     }
 
 }
