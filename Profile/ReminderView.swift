@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Combine
+import CombineCocoa
 
 class ReminderView: UIView , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
@@ -13,6 +15,8 @@ class ReminderView: UIView , UICollectionViewDelegate, UICollectionViewDataSourc
     var pageControl = UIPageControl()
     
     var frameScroll = CGFloat(0)
+    
+    var publisher: PassthroughSubject<Int, Never>?
     
     
     override init(frame: CGRect) {
@@ -154,6 +158,10 @@ class ReminderView: UIView , UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width - 30, height: 66)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        publisher?.send(indexPath.row)
     }
     
     

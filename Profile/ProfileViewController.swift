@@ -38,7 +38,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 28/255, green: 28/255, blue: 30/255, alpha: 1)
         user = loadAthleteArrFromFile()
-        categoryArr = loadCategoryArrFromFile() ?? []
         checkUser()
         createInterface()
         checkCagegoryArr()
@@ -86,26 +85,6 @@ class ProfileViewController: UIViewController {
             categoryCollection?.alpha = 0
         }
     }
-    
-    
-    func loadCategoryArrFromFile() -> [Category]? {
-        let fileManager = FileManager.default
-        guard let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            print("Unable to get document directory")
-            return nil
-        }
-        let filePath = documentDirectory.appendingPathComponent("category111.plist")
-        do {
-            let data = try Data(contentsOf: filePath)
-            let athleteArr = try JSONDecoder().decode([Category].self, from: data)
-            return athleteArr
-        } catch {
-            print("Failed to load or decode athleteArr: \(error)")
-            return nil
-        }
-    }
-   
-    
     
     func loadAthleteArrFromFile() -> User? {
         let fileManager = FileManager.default
